@@ -43,7 +43,7 @@ Press 'ESC' in the GUI or CTRL-C in the terminal to exit the simulation
 
 Example:
 
-    python run.py -env r2 -seed 1000 -nsteps 100000 --render
+    python run.py -env r2 -seed 1000 -steps 100000 --render
 
 
 Environments:
@@ -54,7 +54,7 @@ Environments:
     
 Log data
 
-    python run.py -env r2 -seed 1000 -nsteps 100000 --log > logfile.csv
+    python run.py -env r2 -seed 1000 -steps 100000 --log > logfile.csv
 
  
  
