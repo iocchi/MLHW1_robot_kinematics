@@ -9,15 +9,15 @@ from envs.marrtino_arm import MARRtinoArmEnv
 
 def print_header(njoints, ndim):
     for i in range(njoints):
-        print(f"j{i}; ", end="")
+        print(f"j{i};", end="")
     for i in range(njoints):
-        print(f"cos(j{i}); ", end="")
+        print(f"cos(j{i});", end="")
     for i in range(njoints):
-        print(f"sin(j{i}); ", end="")
+        print(f"sin(j{i});", end="")
     if ndim==2:
-        print("ee_x; ee_y; ee_qw; ee_qz")
+        print("ft_x;ft_y;ft_qw;ft_qz")
     elif ndim==3:
-        print("ee_x; ee_y; ee_z; ee_qw; ee_qx; ee_qy; ee_qz")
+        print("ft_x;ft_y;ft_z;ft_qw;ft_qx;ft_qy;ft_qz")
 
 
 def print_obs(obs, njoints, ndim):
@@ -26,11 +26,11 @@ def print_obs(obs, njoints, ndim):
     for i in range(0,3*njoints):
         r = r + f"{obs[i]:6.3f}; "
     if ndim==2:
-        # fingertip pose  ee_x;ee_y;ee_qw;ee_qz
+        # fingertip pose  ft_x;ft_y;ft_qw;ft_qz
         for i in range(-6,-2):
             r = r + f"{obs[i]:6.3f}; "
     elif ndim==3:
-        # fingertip pose  ee_x;ee_y;ee_z;ee_qw;ee_qx;ee_qy;ee_qz
+        # fingertip pose  ft_x;ft_y;ft_z;ft_qw;ft_qx;ft_qy;ft_qz
         for i in range(-10,-3):
             r = r + f"{obs[i]:6.3f}; "
     print(r[0:-2])
@@ -60,7 +60,7 @@ def dorun(args):
     if args.log:
         print_obs(observation, env.njoints, env.ndim)
 
-    for _ in range(1,args.steps):
+    for i in range(1,args.steps):
         action = env.action_space.sample()  # agent policy that uses the observation and info
         observation, reward, terminated, truncated, info = env.step(action)
         if args.log:
