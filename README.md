@@ -64,4 +64,5 @@ Run the server from the container
     jupyter notebook --ip=0.0.0.0 --no-browser --NotebookApp.allow_remote_access=True --allow-root --NotebookApp.allow_origin='https://colab.research.google.com' --port=8888 --NotebookApp.port_retries=0
     
 
+Npte: in same cases, the connection gets stuck. Just retry!
  
