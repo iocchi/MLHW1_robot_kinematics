@@ -57,4 +57,11 @@ Log data
     python run.py -env r2 -seed 1000 -steps 100000 --log > logfile.csv
 
  
+# Colab local runtime
+
+Run the server from the container
+
+    jupyter notebook --ip=0.0.0.0 --no-browser --NotebookApp.allow_remote_access=True --allow-root --NotebookApp.allow_origin='https://colab.research.google.com' --port=8888 --NotebookApp.port_retries=0
+    
+
  
